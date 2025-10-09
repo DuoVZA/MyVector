@@ -30,7 +30,6 @@ MyVector::MyVector(MyVector&& obj) noexcept // добавил, потому что ошибка просит
 		obj.size = 0;
 		obj.arr = nullptr;
 	}
-} 
 
 void MyVector::Init()
 {

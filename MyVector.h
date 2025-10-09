@@ -18,6 +18,10 @@ public:
 	MyVector operator++(int);
 	MyVector operator--();
 	MyVector operator--(int);
+
+	void operator() ();
+	operator int();
+
 	MyVector operator +=(int);
 	MyVector operator -=(int);
 
