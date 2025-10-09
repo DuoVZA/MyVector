@@ -25,4 +25,11 @@ int main()
 	MyVector vect5 = --vect4;
 	vect4.Print();
 	vect5.Print();
+
+	vect5 /= 20;
+
+	int size = vect5;
+	cout << size << endl;
+
+	vect5.Print();
 }

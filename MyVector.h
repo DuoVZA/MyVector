@@ -14,16 +14,17 @@ public:
 	int GetSize() const;
 	int operator[](int index);
 	MyVector operator=(const MyVector& obj);
+	MyVector operator=(MyVector&& obj) noexcept;
 	MyVector operator++();
 	MyVector operator++(int);
 	MyVector operator--();
 	MyVector operator--(int);
-
 	void operator() ();
 	operator int();
-
-	MyVector operator +=(int);
-	MyVector operator -=(int);
+	MyVector operator +=(int obj);
+	MyVector operator -=(int obj);
+	MyVector operator *=(int obj);
+	MyVector operator /=(int obj);
 
 	// конструктор копирования, 
 	// конструктор переноса, 
@@ -31,4 +32,3 @@ public:
 	// ++ (добавляет 1 элемент в конец массива, значение = 0), 
 	// -- удаляет последний элемент массива
 };
-
