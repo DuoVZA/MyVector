@@ -134,18 +134,17 @@ MyVector MyVector::operator--()
 MyVector MyVector::operator--(int)
 {
 	MyVector old(*this);
-	if (size == 0)
-	{
-		return old;
-	}
-	int* newArr = new int[size - 1];
-	for (size_t i = 0; i < size - 1; i++)
-	{
-		newArr[i] = arr[i];
-	}
-	delete[] arr;
-	arr = newArr;
-	size--;
+	--(*this);
 	return old;
+}
+
+MyVector MyVector::operator+=(int)
+{
+	return MyVector();
+}
+
+MyVector MyVector::operator-=(int)
+{
+	return MyVector();
 }
 

@@ -18,6 +18,8 @@ public:
 	MyVector operator++(int);
 	MyVector operator--();
 	MyVector operator--(int);
+	MyVector operator +=(int);
+	MyVector operator -=(int);
 
 	// конструктор копирования, 
 	// конструктор переноса, 
