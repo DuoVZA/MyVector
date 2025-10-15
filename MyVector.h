@@ -3,6 +3,7 @@ class MyVector
 {
 	int size;
 	int* arr;
+	
 public:
 	MyVector();
 	MyVector(int s);
@@ -11,7 +12,11 @@ public:
 	void Init();
 	void Print();
 	~MyVector();
+	void SetSize(int obj);
 	int GetSize() const;
+	void SetArr(int obj);
+	int GetArr() const;
+	void Add(int s, int a);
 	int operator[](int index);
 	MyVector operator=(const MyVector& obj);
 	MyVector operator=(MyVector&& obj) noexcept;
@@ -26,6 +31,7 @@ public:
 	MyVector operator *=(int obj);
 	MyVector operator /=(int obj);
 
+	friend istream& operator >> (istream& is, MyVector& obj);
 	// конструктор копирования, 
 	// конструктор переноса, 
 	// = с копированием.

@@ -52,9 +52,31 @@ MyVector::~MyVector()
 	size = 0;
 }
 
+void MyVector::SetSize(int obj)
+{
+	size = obj;
+}
+
 int MyVector::GetSize() const
 {
 	return size;
+}
+
+void MyVector::SetArr(int obj)
+{
+	if (size < 0)
+		return;
+	*arr = obj;
+}
+
+int MyVector::GetArr() const
+{
+	return *arr;
+}
+
+void MyVector::Add(int s, int a)
+{
+	arr[s] = a;
 }
 
 int MyVector::operator[](int index)
