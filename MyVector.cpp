@@ -79,11 +79,11 @@ void MyVector::Add(int s, int a)
 	arr[s] = a;
 }
 
-int MyVector::operator[](int index)
+int MyVector::operator[](int i)
 {
-	if (index >= 0 && index < size)
+	if (i >= 0 && i < size)
 	{
-		return arr[index];
+		return arr[i];
 	}
 	return -1;
 }

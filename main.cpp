@@ -2,22 +2,48 @@
 #include "MyVector.h"
 using namespace std;
 
-//MyVector operator+(int a, MyVector obj)
+MyVector operator+(int a, MyVector& obj)
+{
+	MyVector res(obj.GetSize());
+	for (int i = 0; i < obj.GetSize(); ++i)
+		res.Add(i, a + obj[i]);
+	return res;
+}
+
+MyVector operator -- (MyVector& obj)
+{
+	if (obj.GetSize() == 0)
+	{
+		return *this;
+	}
+	int* newArr = new int[obj.GetSize() - 1];
+	for (size_t i = 0; i < obj.GetSize() - 1; i++)
+	{
+		newArr[i] = arr[i];
+	}
+	delete[] arr;
+	arr = newArr;
+	obj.GetSize()--;
+	return *this;
+}
+
+//istream& operator >> (istream& is, MyVector& obj)
 //{
-//	MyVector res;
-//	for (size_t i = 0; i < obj.GetSize(); i++)
+//	for (size_t i = 0; i < obj.size; i++)
 //	{
-//		res[i] = a + obj[i];
+//		cout << "Arr " << i + 1 << ": ";
+//		is >> obj.arr[i];
 //	}
-//	return res;
+//	return is;
 //}
 
 istream& operator >> (istream& is, MyVector& obj)
 {
-	for (size_t i = 0; i < obj.size; i++)
+	int a;
+	for (int i = 0; i < obj.GetSize(); i++)
 	{
-		cout << "Arr " << i + 1 << ": ";
-		is >> obj.arr[i];
+		is >> a;
+		obj.Add(i, a);
 	}
 	return is;
 }
@@ -26,7 +52,7 @@ ostream& operator << (ostream& os, MyVector& obj)
 {
 	for (int i = 0; i < obj.GetSize(); i++)
 	{
-		os << obj[i];
+		os << obj[i] << " ";
 	}
 	return os;
 }
@@ -42,4 +68,5 @@ int main()
 	vect2.Print();
 
 	cin >> vect2;
+	cout << vect2 << endl;
 }
