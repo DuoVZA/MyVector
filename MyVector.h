@@ -7,7 +7,7 @@ class MyVector
 public:
 	MyVector();
 	MyVector(int s);
-	MyVector(MyVector& obj);
+	MyVector(const MyVector& obj);
 	MyVector(MyVector&& obj) noexcept;
 	void Init();
 	void Print();
@@ -18,12 +18,12 @@ public:
 	int GetArr() const;
 	void Add(int s, int a);
 	int operator[](int index);
-	MyVector operator=(const MyVector& obj);
+	MyVector& operator=(const MyVector& obj);
 	MyVector operator=(MyVector&& obj) noexcept;
 	MyVector operator++();
 	MyVector operator++(int);
 	MyVector operator--();
-	MyVector operator--(int);
+	//MyVector operator--(int);
 	void operator() ();
 	operator int();
 	MyVector operator +=(int obj);

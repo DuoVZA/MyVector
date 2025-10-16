@@ -12,19 +12,20 @@ MyVector operator+(int a, MyVector& obj)
 
 MyVector operator -- (MyVector& obj)
 {
-	if (obj.GetSize() == 0)
+	MyVector old(obj);
+	if (obj.size == 0)
 	{
-		return *this;
+		return old;
 	}
-	int* newArr = new int[obj.GetSize() - 1];
-	for (size_t i = 0; i < obj.GetSize() - 1; i++)
+	int* newArr = new int[obj.size - 1];
+	for (size_t i = 0; i < obj.size - 1; i++)
 	{
-		newArr[i] = arr[i];
+		newArr[i] = obj.arr[i];
 	}
-	delete[] arr;
-	arr = newArr;
-	obj.GetSize()--;
-	return *this;
+	delete[] obj.arr;
+	obj.arr = newArr;
+	obj.size--;
+	return old;
 }
 
 istream& operator >> (istream& is, MyVector& obj)
@@ -42,7 +43,7 @@ ostream& operator << (ostream& os, MyVector& obj)
 {
 	for (int i = 0; i < obj.GetSize(); i++)
 	{
-		os << obj[i] << " ";
+		os << obj[i] << "\t";
 	}
 	return os;
 }

@@ -11,7 +11,7 @@ MyVector::MyVector(int s): size(s), arr(new int[size])
 {
 }
 
-MyVector::MyVector(MyVector& obj)
+MyVector::MyVector(const MyVector& obj)
 {
 	size = obj.size;
 	arr = new int[size];
@@ -88,7 +88,7 @@ int MyVector::operator[](int i)
 	return -1;
 }
 
-MyVector MyVector::operator=(const MyVector& obj)
+MyVector& MyVector::operator=(const MyVector& obj)
 {
 	if (this == &obj)
 	{
@@ -159,12 +159,12 @@ MyVector MyVector::operator--()
 	return *this;
 }
 
-MyVector MyVector::operator--(int)
-{
-	MyVector old(*this);
-	--(*this);
-	return old;
-}
+//MyVector MyVector::operator--(int)
+//{
+//	MyVector old(*this);
+//	--(*this);
+//	return old;
+//}
 
 void MyVector::operator() ()
 {
