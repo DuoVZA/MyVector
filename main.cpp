@@ -22,17 +22,6 @@ istream& operator >> (istream& is, MyVector& obj)
 	return is;
 }
 
-//istream& operator >> (istream& is, MyVector& obj)
-//{
-//	int a;
-//	for (int i = 0; i < obj.GetSize(); i++)
-//	{
-//		is >> a;
-//		obj.Add(i, a);
-//	}
-//	return is;
-//}
-
 ostream& operator << (ostream& os, MyVector& obj)
 {
 	for (int i = 0; i < obj.GetSize(); i++)
