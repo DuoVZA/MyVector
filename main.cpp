@@ -27,16 +27,6 @@ MyVector operator -- (MyVector& obj)
 	return *this;
 }
 
-//istream& operator >> (istream& is, MyVector& obj)
-//{
-//	for (size_t i = 0; i < obj.size; i++)
-//	{
-//		cout << "Arr " << i + 1 << ": ";
-//		is >> obj.arr[i];
-//	}
-//	return is;
-//}
-
 istream& operator >> (istream& is, MyVector& obj)
 {
 	int a;
