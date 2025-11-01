@@ -13,37 +13,85 @@ MyVector::MyVector(int s): size(s), arr(new int[size])
 
 MyVector::MyVector(const MyVector& obj)
 {
-	size = obj.size;
-	arr = new int[size];
-	for (size_t i = 0; i < size; i++)
+	try
 	{
-		arr[i] = obj.arr[i];
+		if (obj.size <= 0)
+		{
+			throw "Error! Size <= 0";
+		}
+		size = obj.size;
+		arr = new int[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			if (i>=size)
+			{
+				throw "Error! To much!";
+			}
+			arr[i] = obj.arr[i];
+		}
+	}
+	catch (const char* str)
+	{
+		cout << str << endl;
 	}
 }
 
 MyVector::MyVector(MyVector&& obj) noexcept // добавил, потому что ошибка просит поставить noexcept :?
 {
-	size = obj.size;
-	arr = obj.arr;
-	obj.size = 0;
-	obj.arr = nullptr;
+	try
+	{
+		if (obj.size <= 0)
+		{
+			throw "Error! Size <= 0";
+		}
+		size = obj.size;
+		arr = obj.arr;
+		obj.size = 0;
+		obj.arr = nullptr;
+	}
+	catch (const char* str)
+	{
+		cout << str << endl;
+	}
 } 
 
 void MyVector::Init()
 {
-	for (size_t i = 0; i < size; i++)
+	try
 	{
-		arr[i] = rand() % 50;
+		if (size <= 0)
+		{
+			throw "Error! No array!";
+		}
+		for (size_t i = 0; i < size; i++)
+		{
+			arr[i] = rand() % 50;
+		}
+	}
+	catch (const char* str)
+	{
+		cout << str << endl;
 	}
 }
 
 void MyVector::Print()
 {
-	for (size_t i = 0; i < size; i++)
+	try
 	{
-		cout << arr[i] << "\t";
+		if (size <= 0)
+		{
+			throw "Error! No array!";
+		}
+		for (size_t i = 0; i < size; i++)
+		{
+			cout << arr[i] << "\t";
+		}
+		cout << endl;
 	}
-	cout << endl;
+	catch (const char* str)
+	{
+		cout << str << endl;
+	}
 }
 
 MyVector::~MyVector()

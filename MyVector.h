@@ -32,7 +32,6 @@ public:
 	MyVector operator /=(int obj);
 
 	friend MyVector operator -- (MyVector& obj);
-	/*friend istream& operator >> (istream& is, MyVector& obj);*/
 
 	// конструктор копирования, 
 	// конструктор переноса, 
